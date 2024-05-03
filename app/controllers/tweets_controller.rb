@@ -9,7 +9,13 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(tweet_params)
-    redirect_to '/'
+    redirect_to root_path
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to root_path
   end
 
   private
